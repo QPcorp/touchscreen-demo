@@ -25,7 +25,6 @@ app.controller('mainController', function($scope, $rootScope, $location){
 	}
 
 	$scope.submitPin = function(){
-		alert('wtf');
 		$location.path("/pay");
 	};
 
