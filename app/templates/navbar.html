@@ -1,0 +1,42 @@
+<!-- Sidebar -->
+<section ng-controller="navController">
+    <!-- <p class="menu-icon" ng-click="menu()"><span class="menu-close">&#10005;</span></p> -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav" >
+            <li class="sidebar-brand white">Avani Parking</li>
+            <li>
+                <a href="#/dashboard">Dashboard</a>
+            </li>
+            <li ng-if="admin_show">
+                <a href="#/current-occupancy">Current Occupancy</a>
+            </li>
+            <li ng-if="admin_show">
+                <a href="#/resident-occupancy">Resident Occupancy</a>
+            </li>
+            <li>
+                <a href="#/current-permits">Current Permits</a>
+            </li>
+            <li ng-if="admin_show">
+                <a href="#/lot-config">Lot Configuration</a>
+            </li>
+            <li ng-if="admin_show">
+                <a href="#/residents">Residents</a>
+            </li>
+            <li ng-if="admin_show">
+                <a href="#/resident-permit">Resident Permit</a>
+            </li>
+            <li>
+                <a href="#/visitor-permit">Visitor Permit</a>
+            </li>
+            <li>
+                <a href="#/user-profile">User Profile</a>
+            </li>
+            <li>
+                <a href="#/support">Contact Support</a>
+            <li>
+                <a href="/#/" ng-click="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- /#sidebar-wrapper -->

@@ -1,0 +1,25 @@
+<div id="wrapper">
+	<div ng-include="'app/templates/navbar.html'"></div>
+		<div class="container-fluid">
+			<section id="header">
+				<div class="col-sm-12">
+					<h1>Residents</h1>
+					<p>List of residents.</p>
+				</div>
+			</section>
+			<section id="content">
+				<div class="col-sm-12">
+					<a href="/#/add-resident"><button class="btn btn-primary m-b-m">Add Resident</button></a>
+					<!-- <p ng-repeat="cars in parked">{{cars.Vehicle}}</p> -->
+					<table id="residents-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th ng-repeat="column in columns">{{column.sTitle}}</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="error" ng-show="no_permits">There are no residents.</div>
+				</div>
+			</section>
+		</div>
+</div>

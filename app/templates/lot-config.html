@@ -1,0 +1,28 @@
+<div id="wrapper" ng-controller="lotConfigController">
+	<div ng-include="'app/templates/navbar.html'"></div>
+		<div class="container-fluid">
+			<section id="header">
+				<div class="col-sm-12">
+					<h1>Configure Lots</h1>
+					<p>Define lot settings.</p>
+				</div>
+			</section>
+			<section id="content">
+				<div class="col-sm-12">
+					<h4>Lot Settings</h4>
+					<form class="basic" name="maxPermits">
+						<label>Select Lot</label>
+						<select class="maxPermit-lots form-control input-md" ng-model="lot_maxx" ng-change="lot_max_permit(lot_maxx)">
+							<option value="0" selected>Select a lot</option>
+							<option ng-repeat="lot in lot_list" value="{{lot.LotId}}">{{lot.Alias}}</option>
+						</select>
+						<br>
+						<label>Number of Permits Allowed</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="lot_max" placeholder="4" required/>
+						<small style="position: relative;top: -10px; font-style:italic;">**Note: 0 means there is unlimited permits available.</small><br>
+					<button class="btn btn-primary m-t-m" ng-disabled="maxPermits.$invalid || maxPermits.$pristine" ng-click="max_permits()">Set Lot Capacity</button>
+					</form>
+				</div>
+			</section>
+		</div>
+</div>

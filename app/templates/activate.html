@@ -1,0 +1,38 @@
+<div class="col-sm-12">
+	<div class="col-sm-5 col-sm-offset-4">
+		<div class="col-sm-12 login-box animated fadeInUp">
+			<div class="logo-box">
+				<h3>Set your password</h3>
+				<!-- <img src="assets/img/quickpay-logo-provided.png" alt="QuickPay Logo"/> -->
+			</div>
+			<div class="col-sm-8 col-sm-offset-2">
+				<form ng-controller="activateController" ng-submit="passwordSet()">
+				<p ng-show="login_error" class="login-error">{{error_txt}}</p>
+				  <div class="form-group">
+<!-- 				    <label for="password">Password</label> -->
+				    <input type="password" class="login-input" id="password" placeholder="Password" ng-model="activate.password" required>
+				  </div>
+				  <div class="form-group">
+<!-- 				    <label for="password">Password</label> -->
+				    <input type="password" class="login-input" id="password" placeholder="Password Again" ng-model="activate.new_password" required>
+				  </div>
+				  <input type="submit" class="btn-paper paper-flatten" ng-disabled="submit_disabled" ng-class="{ 'paper-disable': submit_disabled}" value="Submit" />
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>

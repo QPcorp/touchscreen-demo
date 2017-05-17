@@ -1,0 +1,31 @@
+<div class="col-sm-12">
+	<div class="logo center m-t-l">
+		<img src="/assets/img/locomobi-logo.png" />
+	</div>
+	<div class="col-sm-6 center">
+		<img class="receipt-img" src="/assets/img/receipt.png" style="width:60%;" />
+	</div>
+	<div class="col-sm-6">
+		<div id="PINcode">
+			<form action='' method='' name='PINform' id='PINform' autocomplete='off' draggable='true'>
+				<input id='PINbox' type='text' value='' name='PINbox' disabled  ng-model="pin"/>
+				<br/>
+				<input type='button' class='PINbutton' name='1' value='1' id='1' ng-click="addNumber(1)"; />
+				<input type='button' class='PINbutton' name='2' value='2' id='2' ng-click="addNumber(2)"; />
+				<input type='button' class='PINbutton' name='3' value='3' id='3' ng-click="addNumber(3)"; />
+				<br>
+				<input type='button' class='PINbutton' name='4' value='4' id='4' ng-click="addNumber(4)"; />
+				<input type='button' class='PINbutton' name='5' value='5' id='5' ng-click="addNumber(5)"; />
+				<input type='button' class='PINbutton' name='6' value='6' id='6' ng-click="addNumber(6)"; />
+				<br>
+				<input type='button' class='PINbutton' name='7' value='7' id='7' ng-click="addNumber(7)"; />
+				<input type='button' class='PINbutton' name='8' value='8' id='8' ng-click="addNumber(8)"; />
+				<input type='button' class='PINbutton' name='9' value='9' id='9' ng-click="addNumber(9)"; />
+				<br>
+				<input type='button' class='PINbutton clear' name='-' value='clear' ng-click="clearForm()" />
+				<input type='button' class='PINbutton' name='0' value='0' id='0' ng-click="addNumber(0)"; />
+				<input type='button' class='PINbutton enter' name="enter" value="enter" ng-click="submitPin()" />
+			</form>
+		</div>
+	</div>
+</div>

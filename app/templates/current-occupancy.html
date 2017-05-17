@@ -1,0 +1,29 @@
+<div id="wrapper">
+	<div ng-include="'app/templates/navbar.html'"></div>
+		<div class="container-fluid">
+			<section id="header">
+				<div class="col-sm-12">
+					<h1>Current Occupancy</h1>
+					<p>Current possible lot occupany. <span class="hide">{{current_unit_time}}</span></p>
+				</div>
+			</section>
+			<section id="content">
+				<div ng-hide="loaded">
+					<img style="width:10%; margin:20px;" src="/assets/img/loading.gif" alt="Loading" />
+				</div>
+				<div class="col-sm-12" ng-hide="no_permits">
+					<!-- <p ng-repeat="cars in parked">{{cars.Vehicle}}</p> -->
+					<table id="current-permits-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th ng-repeat="column in columns">{{column.sTitle}}</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="col-sm-12" ng-show="no_permits">
+					<div class="error">No current occupancy.</div>
+				</div>
+			</section>
+		</div>
+</div>

@@ -1,0 +1,36 @@
+<div id="wrapper" ng-controller="userProfileController">
+	<div ng-include="'app/templates/navbar.html'"></div>
+		<div class="container-fluid">
+			<section id="header">
+				<div class="col-sm-12">
+					<h1>User Profile</h1>
+					<p>Welcome {{user.first_name}} {{user.last_name}}.</p>
+				</div>
+			</section>
+			<section id="content">
+				<div class="col-sm-12">
+					<h4>User Profile Settings</h4>
+					<form class="basic" name="userProfile" >
+						<label>Username (Suite Id)</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="user.user" disabled />
+						<label>First Name</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="user.first_name" required/>
+						<label>Last Name</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="user.last_name" required/>
+						<label>Phone</label>
+						<input type="text" class="form-control input-md m-b-s" numbers-only minlength=10 ng-model="user.phone" required />
+						<label>Email Address</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="user.email" required/>
+						</form>
+						<a class="m-b-m" ng-click="password_input = true" ng-hide="password_input">Change Password</a>
+						<div class="change-password m-t-m" ng-show="password_input">
+							<label>Password</label><br>
+							<input type="password" class="form-control input-md inline" ng-model="reset.password" placeholder="New Password" />
+							<button class="btn btn-sm btn-primary m-l-s" ng-click="passwordSet()">Submit</button>
+						</div><br>
+
+					<button class="btn btn-primary m-t-m" ng-disabled="userProfile.$invalid || userProfile.$pristine" ng-click="save_profile()">Save Changes</button>
+				</div>
+			</section>
+		</div>
+</div>

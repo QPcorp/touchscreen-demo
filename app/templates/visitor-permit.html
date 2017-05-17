@@ -1,0 +1,76 @@
+<div id="wrapper" ng-controller="visitorPermitController">
+	<div ng-include="'app/templates/navbar.html'"></div>
+		<div class="container-fluid">
+			<section id="header">
+				<div class="col-sm-12">
+					<h1>Visitor Permits</h1>
+					<p>Fill out the form below to issue a permit.</p>
+				</div>
+			</section>
+			<section id="content">
+				<div ng-hide="loaded">
+					<img style="width:10%; margin:20px;" src="/assets/img/loading.gif" alt="Loading" />
+				</div>
+				<div class="permit-limit col-sm-12" ng-show="visitorPermit.limit_error">
+					<p class="red">You have reached your permit limit - Please Contact Property Management Office at (416) 645-8869 for more information. </p>
+				</div>
+				<div ng-show="loaded && visitorPermit.limit_error == false">
+					<div class="visitor-info col-sm-12" ng-show="visitorPermit.window == 'visitor'">
+						<h4 class="inline">Guest Information</h4><small class="red italic m-l-s">All fields are required</small><br>
+						<div ng-hide="user.user_type == 'resident'">
+							<label for="suite-num">Suite # your guest is visiting:</label>
+							<input class="form-control input-sm m-b-s" name="suite-num" ng-model="visitorPermit.data.vistor_suite" placeholder="4109" required/>
+						</div>
+						<label for="guest-fullname">Guest's Name:</label><br>
+						<input class="form-control input-md m-b-s inline" name="guest-fullname" ng-model="visitorPermit.data.first_name" placeholder="First Name"/>
+						<input class="form-control input-md m-b-s inline" name="guest-fullname" ng-model="visitorPermit.data.last_name" placeholder="Last Name"/><br>
+						<label for="guest-number">Guest's Contact Number:</label>
+						<input type="tel" class="form-control input-sm m-b-s" numbers-only name="guest-number" ng-model="visitorPermit.data.phone" minlength=10 placeholder="333-222-2323"/>
+<!-- 						<label for="guest-email">Guest Email Address:</label>
+						<input type="email" class="form-control input-md m-b-m" name="guest-email" ng-model="visitorPermit.data.email" required placeholder="guest@gmail.com"/> -->
+					</div>
+					<div class="car-info col-sm-12" ng-show="visitorPermit.window == 'vehicle'">
+						<h4 class="inline">Vehicle Information</h4><small class="red italic m-l-s">All fields are required</small><br>
+						<label for="vehicle-license">License Plate Number:</label>
+						<input class="form-control input-sm m-b-s" name="vehicle-license" ng-model="visitorPermit.data.vehicle_license" placeholder="ABC123"/>
+						<div class="red" ng-show="lpn_invalid">This license plate is invalid. It already has a resident permit</div>
+						<!-- Search While Typing -->
+						<table id="permit-vehicle-table" ng-show="visitorPermit.vehicleSearch"></table>
+						<label for="vehicle-make" >Make:</label>
+						<input class="form-control input-md m-b-s" name="vehicle-make" ng-model="visitorPermit.data.vehicle_make" placeholder="Honda"/>
+						<label for="vehicle-model" >Model:</label>
+						<input class="form-control input-sm m-b-s" name="vehicle-model" ng-model="visitorPermit.data.vehicle_model" placeholder="Civic"/>
+						<label for="vehicle-color" >Color:</label>
+						<input class="form-control input-md m-b-m" name="vehicle-color" ng-model="visitorPermit.data.vehicle_color" placeholder="Black"/>				
+					</div>
+					<div class="visitor-info col-sm-12 m-b-m" ng-show="visitorPermit.window == 'time'">
+						<h4>Permit Information</h4>
+						<label for="permit-type">Permit Type:</label><br>
+						<input type="radio" class="m-b-s" name="permit-type" value="day_permit" ng-model="visitorPermit.data.permit_type" /> Day Permit - 7am to 2am <br>
+						<input type="radio" class="m-b-s" name="permit-type" value="overnight_permit" ng-model="visitorPermit.data.permit_type" /> Overnight Permit - 7am to 11am (Next Day) <br>
+						<input type="radio" class="m-b-s" name="permit-type" value="three_permit" ng-model="visitorPermit.data.permit_type" /> Three Night Stay - 7am to 11am <br>
+						<input type="radio" class="m-b-s" name="permit-type" value="extended_permit" ng-model="visitorPermit.data.permit_type" /> Extended Stay Permit - Up to 14 Days <br>
+						<div ng-hide="visitorPermit.data.permit_type == 'extended_permit'">
+							<label>Start Date:</label>
+							<input type="text" id="datepicker"  class="form-control input-sm inline" placeholder="04/04/16" ng-model="visitorPermit.data.permit_start_date" />
+						</div>
+						<p class="red" ng-show="visitorPermit.data.permit_type == 'extended_permit' && user.user_type == 'resident'">Please visit your Concierge or Property Management Team to book a stay longer than 3 nights. Contact 416-645-8869 or avani.concierge@delcondo.com</p>
+<!-- 						<input type="radio" class="m-b-s" name="permit-type" value="custom_permit" ng-model="visitorPermit.data.permit_type" ng-click="custom_click()" /> Custom<br> -->
+						<div class="custom-time" ng-show="visitorPermit.data.permit_type == 'extended_permit' && user.user_type != 'resident'">
+							<label>Start Date:</label>
+							<input type="text" id="datepicker" class="form-control input-sm inline" placeholder="04/04/16" ng-model="visitorPermit.data.permit_start_date" />
+							<input type="text" id="timepicker" class="form-control input-sm inline" placeholder="8:00am" ng-model="visitorPermit.data.permit_start_time" />
+							<label class="m-l-l m-t-s" >End Date:</label>
+							<input type="text" id="datepicker2" class="form-control input-sm inline"  placeholder="04/05/16" ng-model="visitorPermit.data.permit_end_date"/>	
+							<input type="text" id="timepicker2" class="form-control input-sm inline" placeholder="10:00pm" ng-model="visitorPermit.data.permit_end_time" required />
+						</div>
+					</div>
+					<div class="col-md-12 visitorPermit-controls">
+						<button class="btn btn-primary" ng-show="visitorPermit.window != 'visitor'" ng-click="visitorPermit.visitorPrevious()">Previous</button>
+						<button class="btn btn-primary" ng-show="visitorPermit.window != 'time'" ng-disabled="visitorPermit.next" ng-click="visitorPermit.visitorNext()">Next</button>
+						<button class="btn btn-primary" ng-show="visitorPermit.window == 'time'" ng-click="visitorPermit.visitorCreate()" ng-disabled="visitorPermit.next">Create</button>		
+					</div>
+				</div>
+			</section>
+		</div>
+</div>

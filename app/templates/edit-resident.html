@@ -1,0 +1,42 @@
+<div id="wrapper" ng-controller="editResidentController">
+	<div ng-include="'app/templates/navbar.html'"></div>
+		<div class="container-fluid">
+			<section id="header">
+				<div class="col-sm-12">
+					<h1>Edit Resident</h1>
+					<p>Edit a resident.</p>
+				</div>
+			</section>
+			<section id="content">
+				<div class="col-sm-12">
+					<h4>User Profile Settings</h4>
+					<form class="basic" name="userProfile" >
+						<label>Suite Id</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="resident.suite_id" placeholder="2100" required/>
+						<label>Parking Spot</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="resident.parking_spot" placeholder="20" required/>
+						<label>Number of Permits Allowed</label>
+						<input type="number" class="form-control input-md m-b-s" ng-model="resident.permits_allowed" placeholder="4" required/>
+						<label>Username</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="resident.user" placeholder="2100user" required/>
+						<label>First Name</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="resident.first_name" placeholder="John" required/>
+						<label>Last Name</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="resident.last_name" placeholder="Smith" required/>
+						<label>Phone</label>
+						<input type="text" class="form-control input-md m-b-s" numbers-only minlength=10 ng-model="resident.phone" placeholder="2145602323" required />
+						<label>Email Address</label>
+						<input type="text" class="form-control input-md m-b-s" ng-model="resident.email" placeholder="example@gmail.com" required/>
+						<p class="blue"><strong>**Note: The resident will recieve an email to set their password</strong></p>
+						<small class="red" ng-show="error_text"><strong>{{error_text}} - Check for email under residents.</strong></small>
+<!-- 						<div class="change-password m-t-m">
+							<label>Password</label><br>
+							<a ng-click="password_input = true" ng-hide="password_input">Change Password</a>
+							<input ng-show="password_input" type="text" class="form-control input-md" ng-model="resident.password" placeholder="New Password" />
+						</div> -->
+					</form>
+					<button class="btn btn-primary m-t-m" ng-disabled="userProfile.$invalid || userProfile.$pristine" ng-click="edit_resident()">Submit Changes</button>
+				</div>
+			</section>
+		</div>
+</div>
