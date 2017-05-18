@@ -6,12 +6,12 @@ var config = {
 };
 
 //Starting the Angular app
-var app = angular.module('partner-qpme', ['ngRoute','ngCookies', 'ngNotificationsBar', 'ngSanitize']);
+var app = angular.module('partner-qpme', ['ngRoute','ngSanitize']);
 
 //Sets the App Configuration
 app.constant("appConfig", config);
 
 //Cookie & Login Check
-app.run(function ($rootScope, $location, $cookieStore, $http, locationService) {
+app.run(function ($rootScope, $location, $http, locationService) {
     console.log('app running');
 });
