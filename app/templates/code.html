@@ -2,13 +2,13 @@
 	<div class="logo center m-t-l">
 		<img src="/assets/img/locomobi-logo.png" />
 	</div>
-	<div class="col-sm-6 center">
-		<img class="receipt-img" src="/assets/img/receipt.png" style="width:60%;" />
+	<div class="col-sm-12 center m-t-l">
+		<img class="receipt-img" src="/assets/img/receipt.png" style="width:30%;" />
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-12 m-b-l">
 		<div id="PINcode">
 			<form action='' method='' name='PINform' id='PINform' autocomplete='off' draggable='true'>
-				<input id='PINbox' type='text' value='' name='PINbox' disabled  ng-model="pin"/>
+				<input id='PINbox' type='text' value='' name='PINbox' ng-model="pin"/>
 				<br/>
 				<input type='button' class='PINbutton' name='1' value='1' id='1' ng-click="addNumber(1)"; />
 				<input type='button' class='PINbutton' name='2' value='2' id='2' ng-click="addNumber(2)"; />

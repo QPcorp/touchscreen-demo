@@ -19,6 +19,7 @@ app.controller('mainController', function($scope, $rootScope, $location){
 		var v = $( "#PINbox" ).val();
 		$( "#PINbox" ).val( v + e.value );
 	}
+	
 	function clearForm(e){
 		//document.getElementById('PINbox').value = "";
 		$( "#PINbox" ).val( "" );
@@ -31,5 +32,7 @@ app.controller('mainController', function($scope, $rootScope, $location){
 	document.getElementById('PINbox').addEventListener('input', function (e) {
 		e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
 	});
+
+	$('#PINbox').focus();
 
 });
