@@ -6,7 +6,7 @@ var config = {
 };
 
 //Starting the Angular app
-var app = angular.module('partner-qpme', ['ngRoute','ngSanitize']);
+var app = angular.module('partner-qpme', ['ngRoute','ngSanitize', 'onScreenKeyboard']);
 
 //Sets the App Configuration
 app.constant("appConfig", config);

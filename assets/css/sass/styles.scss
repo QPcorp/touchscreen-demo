@@ -822,7 +822,7 @@ body {
 }
 #PINform {
     background: #ededed;
-    width: 400px;
+    width: 80%;
     padding: 30px;
     margin: 0 auto;
     margin-top: 100px;
@@ -831,12 +831,12 @@ body {
               box-shadow: 0px 5px 5px -0px rgba(0,0,0,0.3);
 }
 #PINbox {
-  background: #ededed;
-  margin: 3.5%;
-  width: 92%;
-  font-size: 32px;
-  text-align: center;
-  border: 1px solid #d5d5d5;
+  background: #e6e6e6;
+    margin: 3.5%;
+    width: 92%;
+    font-size: 48px;
+    text-align: center;
+    border: 1px solid #CCC;
 }
 .PINbutton {
   background: #ededed;
@@ -1203,6 +1203,11 @@ body {
 
 
 
+.keyboard table{
+  width:100%;
+}
 
-
-
+.keyboard-btn{
+  font-size: 36px;
+  padding: 10px 50px;
+}
