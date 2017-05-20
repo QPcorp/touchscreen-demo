@@ -809,11 +809,9 @@ $color2: #eee;
 
 
 
-
-
 ///DEMO CODE
 body {
-  background: #3498db;
+  background: #000;
 }
 
 #PINform input:focus,
@@ -888,18 +886,49 @@ body {
 
 
 .pay-amount{
-  font-size:72px;
+  font-size:120px;
   color:#fff;
-  margin-top:200px;
+  margin-top:500px;
 }
 
 .pay-btn{
   min-width: 300px;
   border-radius: 0;
   text-transform: uppercase;
-  padding: 20px;
+  font-size: 55px;
+  padding: 40px 120px;
+  margin-top: 110px !important;
 }
 
 .receipt-img{
   margin-top:100px;
 }
+
+
+.welcome-block{
+  padding-top: 500px;
+  padding-bottom: 500px;
+}
+
+.welcome-text{
+  font-size: 140px;
+  font-weight: 100;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing:1px;
+}
+
+.welcome-subtext{
+  font-size:75px;
+  font-weight: 100;
+  color: #fff;
+  text-align: center;
+}
+
+.success-text{
+  font-size:48px;
+  margin-top:50px;
+}
+
+

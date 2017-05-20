@@ -4,6 +4,11 @@ app.config(function($routeProvider) {
 
         // route for the home page
         .when('/', {
+            templateUrl : 'app/templates/welcome.html',
+            controller  : 'welcomeController'
+        })
+
+        .when('/start', {
             templateUrl : 'app/templates/code.html',
             controller  : 'mainController'
         })
